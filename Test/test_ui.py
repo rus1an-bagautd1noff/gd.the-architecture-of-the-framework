@@ -15,7 +15,7 @@ search = Search(driver)
 @allure.epic("UI. Расширенный поиск фильмов")
 @allure.story("UI. Проверка расширенного поиска фильма")
 @allure.title("UI. Расширенный поиск по названию фильма")
-def test_ui_name():
+def test_ui_name(search):
     result_by_name = search.search_by_name()
     print(result_by_name)
     assert result_by_name != 0

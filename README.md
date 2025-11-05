@@ -17,3 +17,12 @@ API тесты направлены на проверку метода GET, чт
 3. Поиск по фильма по актеру
 4. Поиск по названию фильма с неправильными параметрами
 5. Поиск фильма по несуществующему ID
+
+Команды для запуска тестов:
+pytest Test/test_api.py -v --alluredir=allure-results
+
+pytest Test/test_ui.py -v --alluredir=allure-results
+
+pytest Test/ -v --alluredir=allure-results
+
+allure serve allure-results

@@ -7,11 +7,17 @@ from data import *
 @allure.story("API. Проверка поиска фильма")
 @allure.title("API. Поиск по названию фильма")
 def test_api_search_by_name():
-    query_params = {"page": "1", "limit": "1", "query": "House of the dragon"}
+    query_params = {
+        "page": "1",
+        "limit": "1",
+        "query": "House of the dragon"
+    }
     my_headers = {"X-API-KEY": token}
 
     resp = requests.get(
-        URL + "/v1.4/movie/search", json=query_params, headers=my_headers
+        URL + "/v1.4/movie/search",
+        json=query_params,
+        headers=my_headers
     )
     assert resp.status_code == 200
 
@@ -23,19 +29,29 @@ def test_api_search_by_id():
     query_params = {"id": "1316601"}
     my_headers = {"X-API-KEY": token}
 
-    resp = requests.get(URL + "/v1.4/movie", json=query_params, headers=my_headers)
+    resp = requests.get(
+        URL + "/v1.4/movie",
+        json=query_params,
+        headers=my_headers
+    )
     assert resp.status_code == 200
 
 
 @allure.epic("API. Поиск фильмов")
 @allure.story("API. Проверка поиска фильма")
-@allure.title("API. Поиск по фильма  по актеру")
+@allure.title("API. Поиск по фильму по актеру")
 def test_api_search_by_actors_name():
-    query_params = {"page": "1", "limit": "1", "query": "emma d'arcy"}
+    query_params = {
+        "page": "1",
+        "limit": "1",
+        "query": "emma d'arcy"
+    }
     my_headers = {"X-API-KEY": token}
 
     resp = requests.get(
-        URL + "/v1.4/person/search", json=query_params, headers=my_headers
+        URL + "/v1.4/person/search",
+        json=query_params,
+        headers=my_headers
     )
     assert resp.status_code == 200
 
@@ -44,10 +60,18 @@ def test_api_search_by_actors_name():
 @allure.story("API. Проверка поиска фильма")
 @allure.title("API. Поиск по названию фильма с неправильными параметрами")
 def test_api_search_by_wrong_query():
-    params = {"page": "1", "limit": "", "query": "House of the dragon"}
+    params = {
+        "page": "1",
+        "limit": "",
+        "query": "House of the dragon"
+    }
     my_headers = {"X-API-KEY": token}
 
-    resp = requests.get(URL + "/v1.4/movie/search", params=params, headers=my_headers)
+    resp = requests.get(
+        URL + "/v1.4/movie/search",
+        params=params,
+        headers=my_headers
+    )
     assert resp.status_code == 400
 
 
@@ -58,5 +82,9 @@ def test_api_search_by_id_doesnt_exist():
     params = {"id": "1000100 1010110 1010010"}
     my_headers = {"X-API-KEY": token}
 
-    resp = requests.get(URL + "/v1.4/movie", params=params, headers=my_headers)
+    resp = requests.get(
+        URL + "/v1.4/movie",
+        params=params,
+        headers=my_headers
+    )
     assert resp.status_code == 400

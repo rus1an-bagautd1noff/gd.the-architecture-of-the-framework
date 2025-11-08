@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from ExpendedSearchUI import Search
+from Pages.ExpendedSearchUI import Search
 
 
 @pytest.fixture(scope="function")

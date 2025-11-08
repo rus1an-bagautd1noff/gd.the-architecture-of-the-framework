@@ -201,3 +201,20 @@ class Search:
         )
         print(self._search_by_rental_company)
         return int(self._search_by_rental_company)
+
+    def __init__(self, driver):
+        self._driver = driver
+        self._driver.get("https://www.kinopoisk.ru/")
+    
+        try:
+            popup_button = WebDriverWait(self._driver, 3).until(
+                EC.element_to_be_clickable(
+                    (By.XPATH, "//button[contains(text(), 'Понятно') or contains(@class, 'close')]")
+                )
+            )
+            popup_button.click()
+        except Exception:
+            pass
+        
+        self._driver.maximize_window()
+        self._driver.implicitly_wait(20)

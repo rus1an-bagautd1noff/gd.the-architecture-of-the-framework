@@ -24,7 +24,7 @@ def test_ui_name(search):
 @allure.epic("UI. Расширенный поиск фильмов")
 @allure.story("UI. Проверка расширенного поиска фильма")
 @allure.title("UI. Расширенный поиск по году выхода фильма")
-def test_ui_year():
+def test_ui_year(search):
     result_by_year = search.search_by_year()
     print(result_by_year)
     assert result_by_year != 0
@@ -33,7 +33,7 @@ def test_ui_year():
 @allure.epic("UI. Расширенный поиск фильмов")
 @allure.story("UI. Проверка расширенного поиска фильма")
 @allure.title("UI. Расширенный поиск по стране")
-def test_ui_country():
+def test_ui_country(search):
     result_by_country = search.search_by_country()
     print(result_by_country)
     assert result_by_country != "(0)"
@@ -42,7 +42,7 @@ def test_ui_country():
 @allure.epic("UI. Расширенный поиск фильмов")
 @allure.story("UI. Проверка расширенного поиска фильма")
 @allure.title("UI. Расширенный поиск по жанру фильма")
-def test_ui_genre():
+def test_ui_genre(search):
     result_by_genre = search.search_by_genre()
     print(result_by_genre)
     assert result_by_genre != 0
@@ -51,7 +51,7 @@ def test_ui_genre():
 @allure.epic("UI. Расширенный поиск фильмов")
 @allure.story("UI. Проверка расширенного поиска фильма")
 @allure.title("UI. Расширенный поиск по прокатчику")
-def test_ui_rental_company():
+def test_ui_rental_company(search):
     result_by_rental_company = search.search_by_rental_company()
     print(result_by_rental_company)
     assert result_by_rental_company != 0
